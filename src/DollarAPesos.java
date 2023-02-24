@@ -1,7 +1,11 @@
+import javax.swing.*;
+
 public class DollarAPesos extends Divisa {
+
+
     private double pesos = 20;
 
-    private double dollar;
+    private double dollar ;
 
     public DollarAPesos() {
 

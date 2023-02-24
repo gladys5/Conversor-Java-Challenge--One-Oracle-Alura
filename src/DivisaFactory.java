@@ -1,20 +1,25 @@
+import javax.swing.JOptionPane;
+
 public class DivisaFactory {
 
-        public static  Divisa crearDivisa (TipoDivisa tipoDivisa){
+    public static Divisa crearDivisa(TipoDivisa tipoDivisa) {
 
-            switch (tipoDivisa) {
-                case DollarAPesos -> {
-                    return new DollarAPesos();
-                }
-                case PesosADollar -> {
-                    return new PesosADollar();
-                }
-                case EurosADollar -> {
-                    return new EurosADollar();
-                }
 
-         }
-            return null;
+
+        switch (tipoDivisa) {
+            case DollarAPesos -> {
+
+               return new DollarAPesos();
+
+            }
+            case PesosADollar -> {
+                return new PesosADollar();
+            }
+            case EurosADollar -> {
+                return new EurosADollar();
+            }
+
         }
-
+        return null;
     }
+}
