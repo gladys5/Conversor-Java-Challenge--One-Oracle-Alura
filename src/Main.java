@@ -3,44 +3,48 @@ import javax.swing.JOptionPane;
 
 public class Main {
 
+    public static void main(String[] args) throws Exception {
+
+        String[] tiposDCambio = {"PesosADollar", "DollarAPesos", "EurosADollar"};
 
 
+        String conversion = (String) JOptionPane.showInputDialog(null,
+                "Ingrese la cantidad de dinero que desea convertir", "Divisa", JOptionPane.PLAIN_MESSAGE, null, tiposDCambio, tiposDCambio[0]);
 
-
-
-
-    public static void main(String[] args) {
-     String [] TiposDCambio =new String[3];
-     TiposDCambio[0]="PesosADollar";
-     TiposDCambio[1]="DollarAPesos";
-     TiposDCambio[2]="EurosADollar";
-
-//Tipo de cambio tiene que resivir todos los string dinamicos
-        String tipoDivisa = JOptionPane.showInputDialog(null,TiposDCambio);
         double numero = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad de dinero que desea convertir \n "));
 
 
-try {
-    Divisa divisa = DivisaFactory.crearDivisa(TipoDivisa.DollarAPesos);
-    DollarAPesos dollarAPesos = (DollarAPesos) divisa;
 
-    dollarAPesos.setDollar(numero);
+    switch (conversion) {
+        case "DollarAPesos" -> {
 
-    JOptionPane.showInputDialog(null,"El resultado es: ",divisa.calculaDivisa());
-}catch (NumberFormatException  | NullPointerException ex){
-    JOptionPane.showConfirmDialog(null,"Tiene que ser un numero \n");
-    ex.printStackTrace();
-}
+            Divisa divisa = DivisaFactory.crearDivisa(TipoDivisa.DollarAPesos);
+            DollarAPesos dollarAPesos = (DollarAPesos) divisa;
 
-      /* divisa = DivisaFactory.crearDivisa(TipoDivisa.PesosADollar);
-        PesosADollar pesosADollar =(PesosADollar) divisa;
-        pesosADollar.setPesos(numero);
-        JOptionPane.showInputDialog(null,"El resultado es: ",divisa.calculaDivisa());*/
+            dollarAPesos.setDollar(numero);
+            JOptionPane.showInternalMessageDialog(null, "El resultado es: "+ divisa.calculaDivisa());
 
 
+        }
+        case "PesosADollar" -> {
 
-        //requiero dinamizar variables para reducir codigo ,lo primero que se me ocurre es crear un array y que este sea iterado hasta encontrar el valor pasado por el usuario
-        // con este valor cambiar la clase pasada a DivisaFactory.crearDivisa
+            Divisa divisa = DivisaFactory.crearDivisa(TipoDivisa.PesosADollar);
+            PesosADollar pesosADollar = (PesosADollar) divisa;
+
+            pesosADollar.setPesos(numero);
+            JOptionPane.showInternalMessageDialog(null, "El resultado es: "+ divisa.calculaDivisa());
+        }
+        case "EurosADollar" -> {
+
+            Divisa divisa = DivisaFactory.crearDivisa(TipoDivisa.EurosADollar);
+            EurosADollar eurosADollar = (EurosADollar) divisa;
+
+            eurosADollar.setEuros(numero);
+            JOptionPane.showInternalMessageDialog(null, "El resultado es: "+ divisa.calculaDivisa());
+        }
+
+
+    }
 
 
     }
@@ -49,7 +53,16 @@ try {
 
 
 
-}
+//se requiere el manejo de las esepciones como NumberFormatException  | NullPointerException
+    // aun le falta mucha legibilidad a mi codigo
+
+
+
+    }
+
+
+
+
 
 
 

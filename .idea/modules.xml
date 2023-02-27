@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PatronesJava.iml" filepath="$PROJECT_DIR$/PatronesJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProyectoConvertidor.iml" filepath="$PROJECT_DIR$/ProyectoConvertidor.iml" />
     </modules>
   </component>
 </project>
