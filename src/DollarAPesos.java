@@ -28,9 +28,12 @@ public class DollarAPesos extends Divisa {
     }
     @Override
     public double calculaDivisa(){
+    double calcula = dollar*pesos;
+        return calcula;
 
 
-        return pesos*dollar;
+
+
     }
 }
 

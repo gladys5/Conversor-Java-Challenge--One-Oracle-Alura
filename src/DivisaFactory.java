@@ -11,7 +11,9 @@ public class DivisaFactory {
         switch (tipoDivisa) {
             case DollarAPesos -> {
 
-               return new DollarAPesos();
+
+
+                return new DollarAPesos();
 
             }
             case PesosADollar -> {
